@@ -6,12 +6,10 @@ import de.dar1rojumaen.judamod.jumaen.attribute.JuModAttributes;
 import de.dar1rojumaen.judamod.jumaen.enchantment.JuModEnchantments;
 import de.dar1rojumaen.judamod.jumaen.inventoryGroup.JuModGeneralGroup;
 import de.dar1rojumaen.judamod.jumaen.item.JuModItems;
-import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ModClientPackets;
-import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ModPackets;
+import de.dar1rojumaen.judamod.helper.lodestone.packets.ModClientPackets;
+import de.dar1rojumaen.judamod.helper.lodestone.packets.ModPackets;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +31,8 @@ public class JuDaMod implements ModInitializer {
 		JuModEnchantments.register();
 
 		JuModAttributes.register();
+
+
 
 		ModPackets.registerPackets();
 		ModClientPackets.registerClientPackets();

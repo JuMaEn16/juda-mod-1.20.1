@@ -1,4 +1,4 @@
-package de.dar1rojumaen.judamod.jumaen.lodestone.packets;
+package de.dar1rojumaen.judamod.helper.lodestone.packets;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;

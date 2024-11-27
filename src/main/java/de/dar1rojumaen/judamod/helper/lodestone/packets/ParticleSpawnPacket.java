@@ -1,4 +1,4 @@
-package de.dar1rojumaen.judamod.jumaen.lodestone.packets;
+package de.dar1rojumaen.judamod.helper.lodestone.packets;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.PacketByteBuf;
@@ -49,7 +49,7 @@ public class ParticleSpawnPacket {
     }
 
     public static void spawnExampleParticles(World level, Vec3d pos, Color startingColor, Color endingColor) {
-        WorldParticleBuilder.create(LodestoneParticleRegistry.WISP_PARTICLE)
+        WorldParticleBuilder.create(LodestoneParticleRegistry.TWINKLE_PARTICLE)
                 .setScaleData(GenericParticleData.create(2f, 1f,0f).build())
                 .setTransparencyData(GenericParticleData.create(2f).build())
                 .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).setEasing(Easing.ELASTIC_IN).build())
@@ -57,7 +57,5 @@ public class ParticleSpawnPacket {
                 .addMotion(0, 0.01f, 0)
                 .enableNoClip()
                 .spawn(level, pos.x, pos.y +1 , pos.z);
-
-
     }
 }

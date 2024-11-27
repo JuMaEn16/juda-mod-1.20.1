@@ -3,7 +3,7 @@ package de.dar1rojumaen.judamod.jumaen.item;
 import de.dar1rojumaen.judamod.JuDaMod;
 import de.dar1rojumaen.judamod.jumaen.armor.JuModArmorMaterials;
 import de.dar1rojumaen.judamod.jumaen.item.custom.doubleJump.JuDoubleJumpBoots;
-import de.dar1rojumaen.judamod.jumaen.lodestone.LodestoneDI;
+import de.dar1rojumaen.judamod.helper.lodestone.LodestoneDI;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;

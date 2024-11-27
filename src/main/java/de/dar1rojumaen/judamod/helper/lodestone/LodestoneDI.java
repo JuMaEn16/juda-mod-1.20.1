@@ -1,7 +1,7 @@
-package de.dar1rojumaen.judamod.jumaen.lodestone;
+package de.dar1rojumaen.judamod.helper.lodestone;
 
-import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ModPackets;
-import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ParticleSpawnPacket;
+import de.dar1rojumaen.judamod.helper.lodestone.packets.ModPackets;
+import de.dar1rojumaen.judamod.helper.lodestone.packets.ParticleSpawnPacket;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
