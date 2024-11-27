@@ -3,13 +3,14 @@
 	"id": "juda-mod",
 	"version": "${version}",
 	"name": "JuDa Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Fabric Mod mady by Dar1ro and JuMaEn16",
 	"authors": [
-		"Me!"
+		"Dar1ro",
+		"JuMaEn"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/JuMaEn16/juda-mod-1.20.1"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/juda-mod/icon.png",
@@ -20,6 +21,9 @@
 		],
 		"fabric-datagen": [
 			"de.dar1rojumaen.judamod.JuDaModDataGenerator"
+		],
+		"client": [
+			"de.dar1rojumaen.judamod.JuDaModClient"
 		]
 	},
 	"mixins": [

@@ -3,7 +3,8 @@
 	"package": "de.dar1rojumaen.judamod.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"SafeFallHandlerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
