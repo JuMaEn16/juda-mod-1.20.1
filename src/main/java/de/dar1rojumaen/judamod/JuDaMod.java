@@ -6,6 +6,8 @@ import de.dar1rojumaen.judamod.jumaen.attribute.JuModAttributes;
 import de.dar1rojumaen.judamod.jumaen.enchantment.JuModEnchantments;
 import de.dar1rojumaen.judamod.jumaen.inventoryGroup.JuModGeneralGroup;
 import de.dar1rojumaen.judamod.jumaen.item.JuModItems;
+import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ModClientPackets;
+import de.dar1rojumaen.judamod.jumaen.lodestone.packets.ModPackets;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.registry.Registry;
@@ -31,6 +33,9 @@ public class JuDaMod implements ModInitializer {
 		JuModEnchantments.register();
 
 		JuModAttributes.register();
+
+		ModPackets.registerPackets();
+		ModClientPackets.registerClientPackets();
 
 
 		LOGGER.info("Hello Fabric world!");
