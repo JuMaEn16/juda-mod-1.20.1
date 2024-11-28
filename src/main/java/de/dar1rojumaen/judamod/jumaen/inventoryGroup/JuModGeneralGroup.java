@@ -18,6 +18,7 @@ public class JuModGeneralGroup {
                         entries.add(JuModItems.VOIDITE);
                         entries.add(JuModItems.RAW_VOIDITE);
                         entries.add(JuModItems.VOIDITE_BOOTS);
+                        entries.add(JuModItems.LDI);
                     }).build());
 
     public static void registerItemGroups() {

@@ -1,14 +1,21 @@
 package de.dar1rojumaen.judamod.helper.lodestone.packets;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.Camera;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import team.lodestar.lodestone.handlers.ScreenshakeHandler;
+import team.lodestar.lodestone.registry.common.LodestoneFireEffectRegistry;
 import team.lodestar.lodestone.registry.common.particle.LodestoneParticleRegistry;
 import team.lodestar.lodestone.systems.easing.Easing;
 import team.lodestar.lodestone.systems.particle.builder.WorldParticleBuilder;
 import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
 import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
+import team.lodestar.lodestone.systems.screenshake.PositionedScreenshakeInstance;
+import team.lodestar.lodestone.systems.screenshake.ScreenshakeInstance;
 
 import java.awt.*;
 
@@ -49,7 +56,7 @@ public class ParticleSpawnPacket {
     }
 
     public static void spawnExampleParticles(World level, Vec3d pos, Color startingColor, Color endingColor) {
-        WorldParticleBuilder.create(LodestoneParticleRegistry.TWINKLE_PARTICLE)
+        WorldParticleBuilder.create(LodestoneParticleRegistry.EXTRUDING_SPARK_PARTICLE)
                 .setScaleData(GenericParticleData.create(2f, 1f,0f).build())
                 .setTransparencyData(GenericParticleData.create(2f).build())
                 .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).setEasing(Easing.ELASTIC_IN).build())
@@ -57,5 +64,7 @@ public class ParticleSpawnPacket {
                 .addMotion(0, 0.01f, 0)
                 .enableNoClip()
                 .spawn(level, pos.x, pos.y +1 , pos.z);
+        ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(200, pos, 10F, 12)
+                .setIntensity(4F));
     }
 }
