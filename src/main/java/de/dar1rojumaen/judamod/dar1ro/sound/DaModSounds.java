@@ -21,6 +21,9 @@ public class DaModSounds {
     //        DaModSounds.SOUND_BLOCK_BREAK, DaModSounds.SOUND_BLOCK_STEP, DaModSounds.SOUND_BLOCK_PLACE,
     //        DaModSounds.SOUND_BLOCK_HIT, DaModSounds.SOUND_BLOCK_FALL);
 
+    public static final SoundEvent WEAPON_DARIRO = registerSoundEvent("weapon_dariro");
+    public static final SoundEvent DOUBLE_JUMP = registerSoundEvent("double_jump");
+
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(JuDaMod.MOD_ID, name);

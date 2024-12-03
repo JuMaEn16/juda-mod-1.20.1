@@ -2,6 +2,7 @@ package de.dar1rojumaen.judamod;
 
 import de.dar1rojumaen.judamod.dar1ro.inventoryGroup.DaModGeneralGroup;
 import de.dar1rojumaen.judamod.dar1ro.item.DaModItems;
+import de.dar1rojumaen.judamod.dar1ro.sound.DaModSounds;
 import de.dar1rojumaen.judamod.jumaen.attribute.JuModAttributes;
 import de.dar1rojumaen.judamod.jumaen.enchantment.JuModEnchantments;
 import de.dar1rojumaen.judamod.jumaen.inventoryGroup.JuModGeneralGroup;
@@ -23,6 +24,7 @@ public class JuDaMod implements ModInitializer {
 		//Dar1ro
 		DaModItems.registerModItems();
 		DaModGeneralGroup.registerItemGroups();
+		DaModSounds.registerSounds();
 
 		//JuMaEn
 		JuModItems.registerModItems();

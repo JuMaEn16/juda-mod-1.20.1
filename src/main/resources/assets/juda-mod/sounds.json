@@ -1,0 +1,13 @@
+{"weapon_dariro": {
+"subtitle": "sounds.juda-mod.weapon_dariro",
+"sounds": [
+"juda-mod.weapon_dariro"
+]
+},
+  "double_jump": {
+    "subtitle": "sounds.juda-mod.double_jump",
+    "sounds": [
+      "juda-mod.double_jump"
+    ]
+  }
+}
