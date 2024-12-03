@@ -27,6 +27,7 @@ public class DaModSounds {
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(JuDaMod.MOD_ID, name);
+        JuDaMod.LOGGER.info("Registering sound event: {}", id);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 

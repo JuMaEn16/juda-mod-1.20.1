@@ -1,5 +1,6 @@
 package de.dar1rojumaen.judamod.helper.lodestone;
 
+import de.dar1rojumaen.judamod.dar1ro.sound.DaModSounds;
 import de.dar1rojumaen.judamod.helper.lodestone.packets.ModPackets;
 import de.dar1rojumaen.judamod.helper.lodestone.packets.ParticleSpawnPacket;
 import io.netty.buffer.Unpooled;
@@ -9,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -40,6 +42,8 @@ public class LodestoneDI {
                 Color startingColor = new Color(100, 0, 100);
                 Color endingColor = new Color(0, 100, 200);
                 ParticleSpawnPacket packet = new ParticleSpawnPacket(orginalPos, startingColor.getRGB(), endingColor.getRGB());
+                player.playSound(DaModSounds.DOUBLE_JUMP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+
                 PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
                 packet.toBytes(buf);
 

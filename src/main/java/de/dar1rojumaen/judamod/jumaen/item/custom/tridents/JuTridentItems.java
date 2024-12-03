@@ -2,9 +2,15 @@ package de.dar1rojumaen.judamod.jumaen.item.custom.tridents;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 public class JuTridentItems {
     public static class AstralTrident extends TridentItem {
@@ -13,24 +19,32 @@ public class JuTridentItems {
         }
 
         @Override
-        public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-            stack.damage(1, attacker, (e) -> {
-                e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-            });
+        public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+            if (user instanceof PlayerEntity playerEntity) {
+                int charge = this.getMaxUseTime(stack) - remainingUseTicks;
 
-            // Calculate pull direction (from target to attacker)
-            Vec3d attackerPos = attacker.getPos();
-            Vec3d targetPos = target.getPos();
-            Vec3d pullDirection = attackerPos.subtract(targetPos).normalize();
+                if (charge >= 10) {
+                    if (!world.isClient) {
+                        stack.damage(1, playerEntity, (p) -> {
+                            p.sendToolBreakStatus(user.getActiveHand());
+                        });
 
-            // Apply pull force to the target
-            double pullStrength = 1.0; // Adjust strength
-            target.addVelocity(pullDirection.x * pullStrength,
-                    pullDirection.y * pullStrength,
-                    pullDirection.z * pullStrength);
+                        JuAstralTridentEntity customTrident = new JuAstralTridentEntity(world, playerEntity, stack);
+                        customTrident.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F, 1.0F);
 
-            target.velocityModified = true;
-            return true;
+                        if (playerEntity.getAbilities().creativeMode) {
+                            customTrident.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+                        }
+
+                        world.spawnEntity(customTrident);
+                        world.playSoundFromEntity(null, customTrident, SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
+
+                        if (!playerEntity.getAbilities().creativeMode) {
+                            playerEntity.getInventory().removeOne(stack);
+                        }
+                    }
+                }
+            }
         }
     }
 }

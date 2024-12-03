@@ -1,5 +1,6 @@
 package de.dar1rojumaen.judamod.jumaen.item.custom.tridents;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,12 +11,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class JuAstralTridentEntity extends TridentEntity {
-    public JuAstralTridentEntity(EntityType<? extends TridentEntity> entityType, World world) {
-        super(entityType, world);
+    public JuAstralTridentEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);// Use this method to set the trident's stack
     }
 
-    public JuAstralTridentEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack);
+    public JuAstralTridentEntity(EntityType<? extends TridentEntity> entityEntityType, World world) {
+        super(entityEntityType,world);
     }
 
     @Override
