@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -45,6 +46,7 @@ public abstract class SafeFallHandlerMixin extends LivingEntity {
         }
     }
 
+    @Unique
     private double getSafeFallDistanceFromEquipment() {
         ItemStack boots = this.getEquippedStack(EquipmentSlot.FEET);
         Multimap<EntityAttribute, EntityAttributeModifier> modifiers = boots.getAttributeModifiers(EquipmentSlot.FEET);

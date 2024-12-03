@@ -21,6 +21,13 @@ public class JuModGeneralGroup {
                         entries.add(JuModItems.LDI);
                     }).build());
 
+    public static final ItemGroup TRIDENT_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(JuDaMod.MOD_ID, "trident"),
+            FabricItemGroup.builder().displayName(Text.translatable("judamod.itemgroup.trident"))
+                    .icon(() -> new ItemStack(JuModItems.VOIDITE)).entries((displayContext, entries) -> {
+                        entries.add(JuModItems.ASTRAL_TRIDENT);
+                    }).build());
+
     public static void registerItemGroups() {
         JuDaMod.LOGGER.info("Registering JuMaEn Item Groups for " + JuDaMod.MOD_ID);
     }

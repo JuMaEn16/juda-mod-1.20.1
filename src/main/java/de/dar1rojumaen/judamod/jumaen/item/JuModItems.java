@@ -2,6 +2,7 @@ package de.dar1rojumaen.judamod.jumaen.item;
 
 import de.dar1rojumaen.judamod.JuDaMod;
 import de.dar1rojumaen.judamod.jumaen.armor.JuModArmorMaterials;
+import de.dar1rojumaen.judamod.jumaen.item.custom.tridents.JuTridentItems;
 import de.dar1rojumaen.judamod.jumaen.item.custom.doubleJump.JuDoubleJumpBoots;
 import de.dar1rojumaen.judamod.helper.lodestone.LodestoneDI;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -19,6 +20,8 @@ public class JuModItems {
     public static final Item RAW_VOIDITE = registerItem("raw_voidite", new Item(new FabricItemSettings()));
     public static final Item VOIDITE_BOOTS = registerItem("voidite_boots",
             new JuDoubleJumpBoots(JuModArmorMaterials.VOIDITE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
+    public static final Item ASTRAL_TRIDENT = registerItem("astral_trident", new JuTridentItems.AstralTrident(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(JuDaMod.MOD_ID, name), item);

@@ -14,7 +14,7 @@ public class JuDaModModel extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_BLOCK);
+        //blockStateModelGenerator.registerSimpleCubeAll(JuModBlocks.RUBY_BLOCK);
     }
 
     @Override
