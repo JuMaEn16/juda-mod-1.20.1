@@ -4,7 +4,7 @@ import de.dar1rojumaen.judamod.JuDaMod;
 import de.dar1rojumaen.judamod.jumaen.armor.JuModArmorMaterials;
 import de.dar1rojumaen.judamod.jumaen.item.custom.tridents.JuTridentItems;
 import de.dar1rojumaen.judamod.jumaen.item.custom.doubleJump.JuDoubleJumpBoots;
-import de.dar1rojumaen.judamod.helper.lodestone.LodestoneDI;
+//import de.dar1rojumaen.judamod.helper.lodestone.LodestoneDI;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -14,14 +14,15 @@ import net.minecraft.util.Identifier;
 
 public class JuModItems {
     // Create an instance of LodestoneWandItem with appropriate settings
-    public static final Item LDI = registerItem("ldi", new LodestoneDI.LodeStoneDI(new Item.Settings()));
+    //public static final Item LDI = registerItem("ldi", new LodestoneDI.LodeStoneDI(new Item.Settings()));
 
     public static final Item VOIDITE = registerItem("voidite", new Item(new FabricItemSettings()));
     public static final Item RAW_VOIDITE = registerItem("raw_voidite", new Item(new FabricItemSettings()));
     public static final Item VOIDITE_BOOTS = registerItem("voidite_boots",
             new JuDoubleJumpBoots(JuModArmorMaterials.VOIDITE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item ASTRAL_TRIDENT = registerItem("astral_trident", new JuTridentItems.AstralTrident(new Item.Settings()));
+    public static final Item ASTRAL_TRIDENT = registerItem("astral_trident", new JuTridentItems.AstralTrident(new Item.Settings().maxDamage(250)));
+    public static final Item HELLFORK_TRIDENT = registerItem("hellfork_trident", new JuTridentItems.HellFork(new Item.Settings().maxDamage(250)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(JuDaMod.MOD_ID, name), item);

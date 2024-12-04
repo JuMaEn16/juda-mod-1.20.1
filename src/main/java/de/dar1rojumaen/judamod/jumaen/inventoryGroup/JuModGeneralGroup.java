@@ -18,14 +18,15 @@ public class JuModGeneralGroup {
                         entries.add(JuModItems.VOIDITE);
                         entries.add(JuModItems.RAW_VOIDITE);
                         entries.add(JuModItems.VOIDITE_BOOTS);
-                        entries.add(JuModItems.LDI);
+                        //entries.add(JuModItems.LDI);
                     }).build());
 
     public static final ItemGroup TRIDENT_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(JuDaMod.MOD_ID, "trident"),
             FabricItemGroup.builder().displayName(Text.translatable("judamod.itemgroup.trident"))
-                    .icon(() -> new ItemStack(JuModItems.VOIDITE)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(JuModItems.ASTRAL_TRIDENT)).entries((displayContext, entries) -> {
                         entries.add(JuModItems.ASTRAL_TRIDENT);
+                        entries.add(JuModItems.HELLFORK_TRIDENT);
                     }).build());
 
     public static void registerItemGroups() {
