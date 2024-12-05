@@ -6,6 +6,7 @@ import de.dar1rojumaen.judamod.jumaen.item.custom.tridents.hellfork.JuHellForkTr
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,17 +37,12 @@ public class JuTridentItems {
                     if (i >= 10) {
                         PlayerEntity player = (PlayerEntity) user;
                         stack.damage(1, player, p -> p.sendToolBreakStatus(user.getActiveHand()));
-                        System.out.println("Astral Trident pull");
 
                         JuAstralTridentEntity tridentEntity = new JuAstralTridentEntity(world, user, stack);
                         tridentEntity.setPos(user.getX(), user.getEyeY() - 0.1, user.getZ()); // Adjust for hand position if necessary
                         tridentEntity.setOwner(user);
                         tridentEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 2.5F, 1.0F);
                         world.spawnEntity(tridentEntity);
-
-                        System.out.println(tridentEntity);
-
-                        System.out.println("Astral Trident pull 2");
 
                         world.playSound(null, user.getX(), user.getY(), user.getZ(),
                                 SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
@@ -59,7 +55,6 @@ public class JuTridentItems {
             }
         }
     }
-
     public static class HellFork extends TridentItem {
         public HellFork(Settings settings) {
             super(settings);
@@ -145,6 +140,13 @@ public class JuTridentItems {
 
         public boolean isFireOrLava(LivingEntity user) {
             return user.isOnFire() || user.isInLava();
+        }
+
+        @Override
+        public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+            stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+            target.setFireTicks(target.getFireTicks() + 30);
+            return true;
         }
     }
 }

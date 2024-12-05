@@ -1,6 +1,7 @@
 package de.dar1rojumaen.judamod;
 
 import de.dar1rojumaen.judamod.jumaen.entities.JuModEntities;
+import de.dar1rojumaen.judamod.jumaen.item.JuModItems;
 import de.dar1rojumaen.judamod.jumaen.item.custom.doubleJump.JuDoubleJumpHandler;
 import de.dar1rojumaen.judamod.jumaen.item.custom.tridents.astral.JuAstralTridentRenderer;
 import de.dar1rojumaen.judamod.jumaen.item.custom.tridents.astral.JuAstraTridentModelLayers;
@@ -10,6 +11,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.impl.client.model.ModelLoadingRegistryImpl;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class JuDaModClient  implements ClientModInitializer {

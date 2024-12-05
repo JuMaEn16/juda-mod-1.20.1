@@ -1,3 +1,8 @@
 {
-  "judamod.itemgroup.voidite": "Voidite Item Group"
+  "judamod.itemgroup.voidite": "Voidite Item Group",
+  "enchantment.juda-mod.cloud_jump": "Cloud Jump",
+  "enchantment.juda-mod.heated": "Heated",
+
+  "item.juda-mod.astral_trident": "Astral Trident",
+  "item.juda-mod.hellfork_trident": "Hellfork"
 }
